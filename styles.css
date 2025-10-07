@@ -21,8 +21,8 @@ body {
   letter-spacing: 0.01em;
   display: flex;
   flex-direction: column;
-  align-items: stretch;
-  justify-content: flex-start;
+  align-items: center;
+  justify-content: center;
   width: 100vw;
   overflow-x: hidden;
 }
@@ -32,6 +32,8 @@ body {
   flex-direction: column;
   width: 100vw;
   min-height: 100vh;
+  align-items: center;
+  justify-content: center;
 }
 
 .layout-text {
@@ -39,6 +41,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   padding: 0 2vw 0 2vw;
   margin-bottom: 0;
 }
@@ -48,6 +51,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   margin-top: 0;
 }
 
@@ -56,6 +60,10 @@ body {
   margin: 0 auto;
   padding: 0;
   background: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 header {
@@ -66,6 +74,10 @@ header {
   box-shadow: none;
   width: 100vw;
   padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .decor-bar {
@@ -95,6 +107,7 @@ header {
   font-size: 1.5rem;
   margin: 0 0 12px 0;
   font-weight: bold;
+  text-align: center;
 }
 .header-content .marron.blanco {
   color: #fff !important;
@@ -115,6 +128,7 @@ header {
   border-radius: 0;
   padding: 0;
   line-height: 1.4;
+  text-align: center;
 }
 .intro-text.hide {
   opacity: 0;
@@ -127,7 +141,7 @@ header {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: center;
   background: none;
   border-radius: 16px;
   box-shadow: none;
@@ -139,20 +153,20 @@ header {
   transition: min-height 0.5s cubic-bezier(.4,1,.3,1);
 }
 
-/* Transición de tamaño para las burbujas */
 .bubble-main,
 .bubble-group .bubble {
-  transition: transform 0.5s cubic-bezier(.4,1,.3,1), box-shadow 0.3s, border 0.3s;
+  transition: transform 0.5s cubic-bezier(.4,1,.3,1), margin 0.5s cubic-bezier(.4,1,.3,1), box-shadow 0.3s, border 0.3s;
 }
 
-/* Estado normal (pequeño) */
 .bubble-main {
   width: 140px;
   height: 140px;
+  font-size: 1.5rem;
+  transform: scale(1);
+  margin-bottom: 16px;
   border-radius: 50%;
   background: var(--main-green-light);
   color: var(--main-bg);
-  font-size: 1.5rem;
   font-weight: 800;
   border: 3px solid var(--main-green-dark2);
   box-shadow: var(--bubble-shadow-deep), var(--bubble-shadow);
@@ -168,8 +182,6 @@ header {
   letter-spacing: 0.01em;
   text-shadow: 0 2px 8px #fff8, 0 1px 0 #e0c48f;
   background-image: none !important;
-  margin-bottom: 16px;
-  transform: scale(1);
 }
 .bubble-main:active {
   background: var(--main-green);
@@ -197,7 +209,6 @@ header {
   pointer-events: auto;
   position: static;
   transform: none !important;
-  margin: 0 auto 12px auto;
 }
 
 .bubble {
@@ -220,7 +231,7 @@ header {
   padding: 6px;
   letter-spacing: 0.01em;
   margin: 0 auto 12px auto;
-  transition: transform 0.5s cubic-bezier(.4,1,.3,1), opacity 0.28s, box-shadow 0.3s, border 0.3s;
+  transition: transform 0.5s cubic-bezier(.4,1,.3,1), margin 0.5s cubic-bezier(.4,1,.3,1), opacity 0.28s, box-shadow 0.3s, border 0.3s;
   transform: scale(1);
 }
 .bubble:hover, .bubble:focus {
@@ -238,19 +249,31 @@ header {
   padding-bottom: 0;
 }
 
-/* Burbujas de menor a mayor, una debajo de otra */
-.bubble-1 { width: 90px; height: 90px; font-size: 1.35rem; }
-.bubble-2 { width: 75px; height: 75px; font-size: 1.2rem; }
-.bubble-3 { width: 60px; height: 60px; font-size: 1.05rem; }
-.bubble-4 { width: 48px; height: 48px; font-size: 0.95rem; margin-bottom: 0; }
+.bubble-1 { width: 90px; height: 90px; font-size: 1.35rem; margin-bottom: 12px;}
+.bubble-2 { width: 75px; height: 75px; font-size: 1.2rem; margin-bottom: 12px;}
+.bubble-3 { width: 60px; height: 60px; font-size: 1.05rem; margin-bottom: 12px;}
+.bubble-4 { width: 48px; height: 48px; font-size: 0.95rem; margin-bottom: 0;}
 
-/* Estado grande (cuando .bubbles-large está en .bubbles-section) */
-.bubbles-section.bubbles-large .bubble-main,
-.bubbles-section.bubbles-large .bubble-1,
-.bubbles-section.bubbles-large .bubble-2,
-.bubbles-section.bubbles-large .bubble-3,
+/* Estado grande (al crecer) */
+.bubbles-section.bubbles-large .bubble-main {
+  transform: scale(2);
+  margin-bottom: calc(16px * 2.35);
+}
+.bubbles-section.bubbles-large .bubble-1 {
+  transform: scale(2);
+  margin-bottom: calc(12px * 2.35);
+}
+.bubbles-section.bubbles-large .bubble-2 {
+  transform: scale(2);
+  margin-bottom: calc(12px * 2.35);
+}
+.bubbles-section.bubbles-large .bubble-3 {
+  transform: scale(2);
+  margin-bottom: calc(12px * 2.35);
+}
 .bubbles-section.bubbles-large .bubble-4 {
   transform: scale(2);
+  margin-bottom: 0;
 }
 
 /* Modal slider animación suave */
@@ -284,13 +307,21 @@ header {
   padding: 10px 4px 18px 4px;
   min-width: 70vw;
   max-width: 82vw;
-  min-height: 420px;   /* Más largo verticalmente */
+  min-height: 420px;
   max-height: 90vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   position: relative;
   overflow: hidden;
+  justify-content: center;
+}
+
+.slider-content.slider-long,
+.slider-content.slider-long .slider-slides,
+.slider-content.slider-long .slider-slide {
+  min-height: 630px !important;
+  max-height: 900px !important;
 }
 
 .slider-slides {
@@ -300,7 +331,7 @@ header {
   align-items: center;
   justify-content: center;
   position: relative;
-  min-height: 360px;   /* Más largo verticalmente */
+  min-height: 360px;
 }
 
 .slider-slide {
@@ -309,8 +340,8 @@ header {
   padding: 12px 4px;
   min-width: 56vw;
   max-width: 76vw;
-  min-height: 320px;   /* Más largo verticalmente */
-  max-height: 600px;   /* Más largo verticalmente */
+  min-height: 320px;
+  max-height: 600px;
   text-align: center;
   opacity: 0;
   position: absolute;
@@ -324,6 +355,7 @@ header {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
+  align-items: center;
 }
 .slider-slide.active {
   opacity: 1;
@@ -450,65 +482,4 @@ header {
   font-size: 1.2rem;
   transform: none;
   color: var(--main-green-dark2);
-}
-/* Transición de tamaño y separación para las burbujas */
-.bubble-main,
-.bubble-group .bubble {
-  transition: transform 0.5s cubic-bezier(.4,1,.3,1), margin 0.5s cubic-bezier(.4,1,.3,1), box-shadow 0.3s, border 0.3s;
-}
-
-/* Estado normal */
-.bubble-main {
-  width: 140px;
-  height: 140px;
-  font-size: 1.5rem;
-  transform: scale(1);
-  margin-bottom: 16px;
-}
-.bubble-1 { width: 90px; height: 90px; font-size: 1.35rem; transform: scale(1); margin-bottom: 12px;}
-.bubble-2 { width: 75px; height: 75px; font-size: 1.2rem; transform: scale(1); margin-bottom: 12px;}
-.bubble-3 { width: 60px; height: 60px; font-size: 1.05rem; transform: scale(1); margin-bottom: 12px;}
-.bubble-4 { width: 48px; height: 48px; font-size: 0.95rem; transform: scale(1); margin-bottom: 0;}
-
-/* Estado grande (al crecer) */
-.bubbles-section.bubbles-large .bubble-main {
-  transform: scale(2);
-  margin-bottom: calc(16px * 2.35); /* 135% más separación */
-}
-.bubbles-section.bubbles-large .bubble-1 {
-  transform: scale(2);
-  margin-bottom: calc(12px * 2.35);
-}
-.bubbles-section.bubbles-large .bubble-2 {
-  transform: scale(2);
-  margin-bottom: calc(12px * 2.35);
-}
-.bubbles-section.bubbles-large .bubble-3 {
-  transform: scale(2);
-  margin-bottom: calc(12px * 2.35);
-}
-.bubbles-section.bubbles-large .bubble-4 {
-  transform: scale(2);
-  margin-bottom: 0;
-}
-
-/* Sliders más largos verticalmente */
-.slider-content {
-  min-height: 420px;
-  max-height: 90vh;
-}
-.slider-slides {
-  min-height: 360px;
-}
-.slider-slide {
-  min-height: 320px;
-  max-height: 600px;
-}
-
-/* Sliders aún más largos para temas extensos */
-.slider-content.slider-long,
-.slider-content.slider-long .slider-slides,
-.slider-content.slider-long .slider-slide {
-  min-height: 630px !important;
-  max-height: 900px !important;
 }
