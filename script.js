@@ -2,6 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const mainBubble = document.getElementById('mainBubble');
   const bubbleGroup = document.getElementById('bubbleGroup');
   const introText = document.getElementById('introText');
+  const bubblesSection = document.querySelector('.bubbles-section');
   const bubbles = bubbleGroup.querySelectorAll('.bubble');
   const modal = document.getElementById('modalSlider');
   const slidesContainer = document.getElementById('sliderSlides');
@@ -199,10 +200,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
   mainBubble.addEventListener('click', () => {
     bubbleGroup.classList.toggle('open');
+    const bubblesSection = document.querySelector('.bubbles-section');
     if (bubbleGroup.classList.contains('open')) {
       introText.classList.add('hide');
+      bubblesSection.classList.add('bubbles-large'); // Agranda burbujas con transición
     } else {
       introText.classList.remove('hide');
+      bubblesSection.classList.remove('bubbles-large');
     }
   });
 
