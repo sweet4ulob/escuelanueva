@@ -3,45 +3,37 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>¿Qué es la escuela nueva?</title>
+  <title>¿Qué es la Escuela Nueva?</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div class="main-layout">
-    <section class="layout-text">
-      <header>
-        <div class="decor-bar"></div>
-        <section class="header-content">
-          <h1>
-            ¿Qué es la <span class="marron blanco">Escuela Nueva</span>?
-          </h1>
-          <p class="intro-text" id="introText">
-            Descubre el origen, las ideas y el impacto de este movimiento pedagógico revolucionario.<br>
-            <span class="intro-blanco">¡Haz clic en la burbuja central para explorar!</span>
-          </p>
-        </section>
-        <div class="decor-bar"></div>
-      </header>
-    </section>
-    <section class="layout-bubbles">
-      <div class="bubbles-section">
-        <button class="bubble-main" id="mainBubble">La Escuela Nueva es:</button>
-        <div class="bubble-group" id="bubbleGroup">
-          <button class="bubble bubble-1" data-topic="origen"><span class="bubble-label">Origen</span></button>
-          <button class="bubble bubble-2" data-topic="ideas"><span class="bubble-label">Ideas del movimiento</span></button>
-          <button class="bubble bubble-3" data-topic="historia"><span class="bubble-label">Su historia en Argentina</span></button>
-          <button class="bubble bubble-4" data-topic="actualidad"><span class="bubble-label">En la actualidad</span></button>
-        </div>
+  <main class="container">
+    <header>
+      <h1>¿Qué es la <span class="highlight">Escuela Nueva</span>?</h1>
+      <p class="intro" id="introText">
+        Descubre el origen, las ideas y el impacto de este movimiento pedagógico revolucionario.<br>
+        <span class="hint">¡Haz clic en la burbuja central para explorar!</span>
+      </p>
+    </header>
+    <section class="bubbles-area">
+      <button class="bubble main-bubble" id="mainBubble">Escuela Nueva</button>
+      <div class="bubbles-group" id="bubbleGroup">
+        <button class="bubble" data-topic="origen">Origen</button>
+        <button class="bubble" data-topic="ideas">Ideas</button>
+        <button class="bubble" data-topic="historia">Historia</button>
+        <button class="bubble" data-topic="actualidad">Actualidad</button>
       </div>
     </section>
-  </div>
-  <div class="modal-slider" id="modalSlider" aria-modal="true" role="dialog" tabindex="-1" hidden>
-    <div class="slider-content">
-      <button class="slider-close" id="sliderClose" aria-label="Cerrar">×</button>
-      <button class="slider-nav slider-prev" id="sliderPrev" aria-label="Anterior">‹</button>
-      <div class="slider-slides" id="sliderSlides"></div>
-      <button class="slider-nav slider-next" id="sliderNext" aria-label="Siguiente">›</button>
-      <div class="slider-indicators" id="sliderIndicators"></div>
+  </main>
+  <div class="modal" id="modalSlider" hidden>
+    <div class="slider">
+      <button class="close" id="sliderClose" aria-label="Cerrar">×</button>
+      <div class="slides" id="sliderSlides"></div>
+      <div class="slider-controls">
+        <button class="nav" id="sliderPrev" aria-label="Anterior">‹</button>
+        <div class="indicators" id="sliderIndicators"></div>
+        <button class="nav" id="sliderNext" aria-label="Siguiente">›</button>
+      </div>
     </div>
   </div>
   <script src="script.js"></script>
